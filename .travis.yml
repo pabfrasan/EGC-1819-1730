@@ -12,13 +12,11 @@ python:
 - '3.6'
 install:
 - pip install -r requirements.txt
-- pip install codacy-coverage
 script:
 - sudo apt update
-- sudo apt install google-chrome-stable
 - cd decide
 - cp travis_local_settings.py local_settings.py
 
-- coverage run --branch --source=. ./manage.py test --keepdb
-- coverage xml
-- python-codacy-coverage -r coverage.xml
+- python ./manage.py test --keepdb
+
+
